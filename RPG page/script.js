@@ -18,22 +18,10 @@ const monsterName = document.querySelector("#monsterName");
 const monsterNameText = document.querySelector("#monsterName");
 
 const weapons = [
-	{
-		name: "stick",
-		power: 5,
-	},
-	{
-		name: "dagger",
-		power: 30,
-	},
-	{
-		name: "claw hammer",
-		power: 50,
-	},
-	{
-		name: "sword",
-		power: 100,
-	}
+	{name: "stick", power: 5,},
+	{name: "dagger", power: 30,},
+	{name: "claw hammer", power: 50,},
+	{name: "sword", power: 100,}
 ];
 
 const locations = [
@@ -123,7 +111,13 @@ function buyWeapon(){
 
 function sellWeapon(){
 	if (inventory.length > 1){
-		
+		gold += 15;
+		goldText.innerText = gold;
+		let currentWeapon = inventory.shift();
+		text.innerText = "You sold a " + currentWeapon + ".";
+		text.innerText += " In your inventory you have: " + inventory;
+	} else {
+		text.innerText = "Don't sell your only weapon!";
 	}
 }
 
